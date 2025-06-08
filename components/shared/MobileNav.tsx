@@ -29,7 +29,7 @@ const MobileNav = () => {
             alt="logo"
             width={198}
             height={38}
-            
+            className="pt-3"
           />
           <Separator className="border border-gray-50" />
           <NavItems />
