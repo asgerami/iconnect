@@ -1,9 +1,20 @@
+/* globals.css */
+
+/* Import Tailwind CSS core */
 @import "tailwindcss";
+
+/* Import the recommended animation library for Shadcn UI in v4 */
 @import "tw-animate-css";
 
+/* Import Tailwind plugins */
+@plugin "@tailwindcss/forms";
+
+/* Define custom variants (e.g., for class-based dark mode) */
 @custom-variant dark (&:is(.dark *));
 
+/* Configure your theme variables using @theme */
 @theme inline {
+  /* Existing theme variables */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -41,8 +52,51 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Translated theme from tailwind.config.ts */
+  /* Container configuration */
+  --container-center: center;
+  --container-padding: 2rem;
+  --breakpoint-2xl: 1400px; /* Note: screens are now breakpoints */
+
+  /* Custom colors */
+  --color-primary-500: #624CF5;
+  --color-primary-50: #F6F8FD;
+  --color-primary: #624CF5; /* DEFAULT */
+  --color-coral-500: #15BF59;
+  --color-grey-600: #545454;
+  --color-grey-500: #757575;
+  --color-grey-400: #AFAFAF;
+  --color-grey-50: #F6F6F6;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+
+  /* Custom font families */
+  --font-poppins: var(--font-poppins); /* Assuming this is defined via CSS variables elsewhere (e.g., Google Fonts import) */
+
+  /* Background images (can be directly used with bg-dotted-pattern, etc.) */
+  --background-image-dotted-pattern: url('/assets/images/dotted-pattern.png');
+  --background-image-hero-img: url('/assets/images/hero.png');
+
+  /* Border radius. `radius` is already defined in :root. */
+  /* These are already covered by the existing --radius-* variables. */
+
+  /* Keyframes and animation: These are typically handled by tw-animate-css or direct CSS */
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+
+  /* Define the animations */
+  --animation-accordion-down: accordion-down 0.2s ease-out;
+  --animation-accordion-up: accordion-up 0.2s ease-out;
 }
 
+/* Existing root variables (keep as is) */
 :root {
   --radius: 0.5rem;
   --background: oklch(1 0 0);
@@ -75,7 +129,7 @@
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: oklch(0.556 0 0);
 }
 
 .dark {
@@ -120,9 +174,10 @@
     scroll-behavior: smooth;
   }
   body {
-    font-family: var(--font-poppins)
+    font-family: var(--font-poppins); /* Ensure --font-poppins is defined somewhere (e.g., via Google Fonts) */
   }
 }
+
 @layer utilities {
   .wrapper {
     @apply max-w-7xl lg:mx-auto p-5 md:px-10 xl:px-0 w-full;
@@ -138,7 +193,7 @@
   /* TYPOGRAPHY */
   /* 64 */
   .h1-bold {
-    @apply font-bold text-[40px] leading-[48px] lg:text-[48px] lg:leading-[60px]  xl:text-[58px] xl:leading-[74px];
+    @apply font-bold text-[40px] leading-[48px] lg:text-[48px] lg:leading-[60px] xl:text-[58px] xl:leading-[74px];
   }
 
   /* 40 */
@@ -168,7 +223,7 @@
   .h5-bold {
     @apply font-bold text-[28px] leading-[36px];
   }
-    /* 24 */
+  /* 24 */
   .p-bold-24 {
     @apply font-bold text-[24px] leading-[36px];
   }
@@ -177,8 +232,9 @@
     @apply font-medium text-[24px] leading-[36px];
   }
 
+ 
   .p-regular-24 {
-    @apply font-normal text-[24px] leading-[36px];
+    @apply text-[24px] font-normal leading-[36px];
   }
 
   /* 20 */
@@ -195,7 +251,10 @@
   }
 
   .p-regular-20 {
-    @apply text-[20px] font-normal leading-[30px] tracking-[2%];
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 30px;
+    letter-spacing: 0.02em; /* 2% tracking */
   }
 
   /* 18 */
@@ -208,7 +267,10 @@
   }
 
   .p-regular-18 {
-    @apply text-[18px] font-normal leading-[28px] tracking-[2%];
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 28px;
+    letter-spacing: 0.02em; /* 2% tracking */
   }
 
   /* 16 */
@@ -220,7 +282,7 @@
     @apply text-[16px] font-medium leading-[24px];
   }
 
-  .p-regular-16 {
+  .p-regular-16{
     @apply text-[16px] font-normal leading-[24px];
   }
 
@@ -241,7 +303,6 @@
   .p-medium-12 {
     @apply text-[12px] font-medium leading-[20px];
   }
-  
 }
 
 
@@ -294,4 +355,3 @@
 .react-datepicker__time-list-item--selected {
   background-color: #624cf5 !important;
 }
-
