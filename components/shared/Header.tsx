@@ -8,18 +8,18 @@ import MobileNav from "./MobileNav";
 const Header = () => {
   return (
     <header className="w-full border-b">
-      <div className="lg:mx-auto p-5 md:px-10 xl:px-20 w-full flex items-center justify-between">
+      <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
           <Image
             src="/assets/images/logo.png"
-            width={158}
+            width={128}
             height={38}
             alt="Iconnect Logo"
           />
         </Link>
 
         <SignedIn>
-          <nav className="hidden md:flex w-full max-w-xs">
+          <nav className="hidden md:flex w-full max-w-xs space-x-7">
             <NavItems />
           </nav>
         </SignedIn>

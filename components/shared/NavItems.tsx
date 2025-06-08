@@ -9,14 +9,14 @@ const NavItems = () => {
 
 
   return (
-    <ul className="md:justify-between flex w-full flex-col items-center gap-5 md:flex-row">
+    <ul className="md:flex-between px-9 flex w-full flex-col items-start gap-6 md:flex-row">
       {headerLinks.map((linkItem) => {
         const isActive = pathname === linkItem.route;
 
         return (
           <li key={linkItem.route}
           className={`${
-            isActive && 'text-purple-500'  
+            isActive && 'text-primary-500'  
           } flex-center p-medium-16 whitespace-nowrap`}>
             <Link href={linkItem.route}>{linkItem.label}</Link>
           </li>
