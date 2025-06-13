@@ -8,7 +8,8 @@ import { SearchParamProps } from "@/types";
 import Image from "next/image";
 
 const EventDetails = async (props: SearchParamProps) => {
-  const { params, searchParams } = props;
+  const params = await props.params;
+  const searchParams = await props.searchParams;
 
   const { id } = params; // Destructure after awaiting
   const page = searchParams?.page as string;
