@@ -7,17 +7,18 @@ import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
 
-const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
-  const resolvedParams = await params; // Await params
-  const resolvedSearchParams = await searchParams; // Await searchParams
+const EventDetails = async (props: SearchParamProps) => {
+  const { params, searchParams } = props;
 
-  const { id } = resolvedParams; // Destructure after awaiting
+  const { id } = params; // Destructure after awaiting
+  const page = searchParams?.page as string;
+
   const event = await getEventById(id);
 
   const realtedEvents = await getRelatedEventsByCategory({
     categoryId: event.category._id,
     eventId: event._id,
-    page: resolvedSearchParams.page as string,
+    page,
   });
 
   return (
