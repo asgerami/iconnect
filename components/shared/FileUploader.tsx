@@ -2,7 +2,7 @@
 
 import { useCallback, Dispatch, SetStateAction } from 'react'
 // Removed import of FileWithPath as it does not exist in '@uploadthing/react'
-import { useDropzone } from '@uploadthing/react/'
+import { useDropzone } from '@uploadthing/react'
 import { generateClientDropzoneAccept } from 'uploadthing/client'
 
 import { Button } from '@/components/ui/button'
