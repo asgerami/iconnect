@@ -28,6 +28,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
               <th className="min-w-[250px] py-3 text-left">Order ID</th>
               <th className="min-w-[200px] flex-1 py-3 pr-4 text-left">Event Title</th>
               <th className="min-w-[150px] py-3 text-left">Buyer</th>
+              <th className="min-w-[200px] py-3 text-left">Email</th>
               <th className="min-w-[100px] py-3 text-left">Created</th>
               <th className="min-w-[100px] py-3 text-right">Amount</th>
             </tr>
@@ -35,7 +36,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
           <tbody>
             {orders && orders.length === 0 ? (
               <tr className="border-b">
-                <td colSpan={5} className="py-4 text-center text-gray-500">
+                <td colSpan={6} className="py-4 text-center text-gray-500">
                   No orders found.
                 </td>
               </tr>
@@ -50,6 +51,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
                       <td className="min-w-[250px] py-4 text-primary-500">{row._id}</td>
                       <td className="min-w-[200px] flex-1 py-4 pr-4">{row.eventTitle}</td>
                       <td className="min-w-[150px] py-4">{row.buyer}</td>
+                      <td className="min-w-[200px] py-4">{row.buyerEmail}</td>
                       <td className="min-w-[100px] py-4">
                         {formatDateTime(row.createdAt).dateTime}
                       </td>
