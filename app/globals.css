@@ -78,7 +78,7 @@
 
   /* Background images (can be directly used with bg-dotted-pattern, etc.) */
   --background-image-dotted-pattern: url('/assets/images/dotted-pattern.png');
-  --background-image-hero-img: url('/assets/images/hero.png');
+  --background-image-hero-img: url('/assets/images/newhero.png');
 
   /* Border radius. `radius` is already defined in :root. */
   /* These are already covered by the existing --radius-* variables. */
