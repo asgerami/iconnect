@@ -3,7 +3,7 @@
 /* Import Tailwind CSS core */
 @import "tailwindcss";
 @import "uploadthing/tw/v4";
-@source "/home/amir/iconnect/node_modules/@uploadthing/react/dist"; 
+@source "/home/amir/iconnect/node_modules/@uploadthing/react/dist";
 
 /* Import the recommended animation library for Shadcn UI in v4 */
 @import "tw-animate-css";
@@ -62,35 +62,45 @@
   --breakpoint-2xl: 1400px; /* Note: screens are now breakpoints */
 
   /* Custom colors */
-  --color-primary-500: #624CF5;
-  --color-primary-50: #F6F8FD;
-  --color-primary: #624CF5; /* DEFAULT */
-  --color-coral-500: #15BF59;
+  --color-primary-500: #624cf5;
+  --color-primary-50: #f6f8fd;
+  --color-primary: #624cf5; /* DEFAULT */
+  --color-coral-500: #15bf59;
   --color-grey-600: #545454;
   --color-grey-500: #757575;
-  --color-grey-400: #AFAFAF;
-  --color-grey-50: #F6F6F6;
+  --color-grey-400: #afafaf;
+  --color-grey-50: #f6f6f6;
   --color-black: #000000;
-  --color-white: #FFFFFF;
+  --color-white: #ffffff;
 
   /* Custom font families */
-  --font-poppins: var(--font-poppins); /* Assuming this is defined via CSS variables elsewhere (e.g., Google Fonts import) */
+  --font-poppins: var(
+    --font-poppins
+  ); /* Assuming this is defined via CSS variables elsewhere (e.g., Google Fonts import) */
 
   /* Background images (can be directly used with bg-dotted-pattern, etc.) */
-  --background-image-dotted-pattern: url('/assets/images/dotted-pattern.png');
-  --background-image-hero-img: url('/assets/images/newhero.png');
+  --background-image-dotted-pattern: url("/assets/images/dotted-pattern.png");
+  --background-image-hero-img: url("/assets/images/newhero.png");
 
   /* Border radius. `radius` is already defined in :root. */
   /* These are already covered by the existing --radius-* variables. */
 
   /* Keyframes and animation: These are typically handled by tw-animate-css or direct CSS */
   @keyframes accordion-down {
-    from { height: 0; }
-    to { height: var(--radix-accordion-content-height); }
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
   }
   @keyframes accordion-up {
-    from { height: var(--radix-accordion-content-height); }
-    to { height: 0; }
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
   }
 
   /* Define the animations */
@@ -176,28 +186,30 @@
     scroll-behavior: smooth;
   }
   body {
-    font-family: var(--font-poppins); /* Ensure --font-poppins is defined somewhere (e.g., via Google Fonts) */
+    font-family: var(
+      --font-poppins
+    ); /* Ensure --font-poppins is defined somewhere (e.g., via Google Fonts) */
   }
 }
 
 @layer utilities {
-  .input-field{
-    @apply bg-grey-50 h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full text-[16px] font-normal leading-[24px] px-4 py-3 border-none focus-visible:ring-transparent ;
+  .input-field {
+    @apply bg-grey-50 h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full text-[16px] font-normal leading-[24px] px-4 py-3 border-none focus-visible:ring-transparent;
   }
   .select-field {
-    @apply w-full bg-grey-50 h-[54px] placeholder:text-grey-500 rounded-full text-[16px] font-normal leading-[24px] px-5 py-3 border-none focus-visible:ring-transparent focus:ring-transparent ;
+    @apply w-full bg-grey-50 h-[54px] placeholder:text-grey-500 rounded-full text-[16px] font-normal leading-[24px] px-5 py-3 border-none focus-visible:ring-transparent focus:ring-transparent;
   }
-  .select-item{
+  .select-item {
     @apply py-3 cursor-pointer focus:bg-primary-50;
   }
-  .button{
+  .button {
     @apply rounded-full h-[54px] text-[16px] font-normal leading-[24px];
   }
-  .toggle-switch{
+  .toggle-switch {
     @apply bg-grey-400;
   }
-  .textarea{
-    @apply bg-grey-50 flex flex-1 placeholder:text-grey-500 text-[16px] font-normal leading-[24px] px-5 py-3 border-none focus-visible:ring-transparent
+  .textarea {
+    @apply bg-grey-50 flex flex-1 placeholder:text-grey-500 text-[16px] font-normal leading-[24px] px-5 py-3 border-none focus-visible:ring-transparent;
   }
   .wrapper {
     @apply max-w-7xl lg:mx-auto p-5 md:px-10 xl:px-0 w-full;
@@ -252,7 +264,6 @@
     @apply font-medium text-[24px] leading-[36px];
   }
 
- 
   .p-regular-24 {
     @apply text-[24px] font-normal leading-[36px];
   }
@@ -302,7 +313,7 @@
     @apply text-[16px] font-medium leading-[24px];
   }
 
-  .p-regular-16{
+  .p-regular-16 {
     @apply text-[16px] font-normal leading-[24px];
   }
 
@@ -323,8 +334,46 @@
   .p-medium-12 {
     @apply text-[12px] font-medium leading-[20px];
   }
-}
 
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+}
 
 .filter-grey {
   filter: brightness(0) saturate(100%) invert(47%) sepia(0%) saturate(217%)
@@ -351,7 +400,7 @@
 .cl-formButtonPrimary:hover,
 .cl-formButtonPrimary:focus,
 .cl-formButtonPrimary:active {
-  background-color: #705CF7
+  background-color: #705cf7;
 }
 
 /* ========================================== REACT-DATEPICKER STYLES */
@@ -376,4 +425,3 @@
 .react-datepicker__time-list-item--selected {
   background-color: #624cf5 !important;
 }
-
