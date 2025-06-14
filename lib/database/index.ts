@@ -18,7 +18,7 @@ export const connectToDatabase = async () => {
     cached.promise ||
     mongoose.connect(MONGODB_URI, {
       dbName: "iconnect",
-      bufferCommands: false,
+      bufferCommands: true, // Changed to true to allow buffering
     });
 
   cached.conn = await cached.promise;
