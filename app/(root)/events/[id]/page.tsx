@@ -10,14 +10,13 @@ import Image from "next/image";
 
 const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
   const resolvedParams = await params;
-  const resolvedSearchParams = await searchParams;
-
   const { id } = resolvedParams;
-  const page = resolvedSearchParams?.page as string;
+
+  const page = searchParams?.page as string;
 
   const event = await getEventById(id);
 
-  const realtedEvents = await getRelatedEventsByCategory({
+  const relatedEvents = await getRelatedEventsByCategory({
     categoryId: event.category._id,
     eventId: event._id,
     page,
@@ -103,7 +102,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
         <h2 className="h2-bold">Related Events</h2>
 
         <Collection
-          data={realtedEvents?.data}
+          data={relatedEvents?.data}
           emptyTitle="No Events Found"
           emptyStateSubtext="Come back later"
           collectionType="All_Events"
