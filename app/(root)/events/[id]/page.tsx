@@ -8,12 +8,12 @@ import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
 
-const EventDetails = async (props: SearchParamProps) => {
-  const params = await props.params;
-  const searchParams = await props.searchParams;
+const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
 
-  const { id } = params; // Destructure after awaiting
-  const page = searchParams?.page as string;
+  const { id } = resolvedParams;
+  const page = resolvedSearchParams?.page as string;
 
   const event = await getEventById(id);
 
